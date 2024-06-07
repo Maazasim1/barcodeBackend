@@ -26,7 +26,7 @@ app.get('/',(req,res)=>{
 
 app.get('/uploadToDatabase', async (req, res) => {
     await uploadToMongo();
-  res.send('Express + TypeScript Server');
+  res.send('all files have been uploaded to the database');
 });
 
 app.get('/searchGtin/:gtin',async (req,res)=>{
