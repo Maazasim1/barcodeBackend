@@ -10,12 +10,19 @@ async function searchGtin(gtin) {
             console.log('GTIN found:', result);
             return result
         } else {
-            console.log('GTIN not found');
-            return "gtin not found"
+            const codeResult = await Items.findOne({ itemCode: gtin });
+            if (codeResult) {
+                console.log('GTIN found:', result);
+                return result
+            }
+            else {
+                console.log('GTIN not found');
+                return "gtin not found"
+            }
         }
     } catch (error) {
         console.error('Error searching for GTIN:', error);
-    } 
+    }
 }
 
-module.exports={searchGtin}
+module.exports = { searchGtin }
