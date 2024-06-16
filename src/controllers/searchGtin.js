@@ -12,8 +12,8 @@ async function searchGtin(gtin) {
         } else {
             const codeResult = await Items.findOne({ itemCode: gtin });
             if (codeResult) {
-                console.log('GTIN found:', result);
-                return result
+                console.log('GTIN found:', codeResult);
+                return codeResult
             }
             else {
                 console.log('GTIN not found');
